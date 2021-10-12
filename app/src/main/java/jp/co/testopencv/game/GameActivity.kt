@@ -80,7 +80,7 @@ class GameActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewListe
             mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS)
         }
     }
-    
+
     override fun onCameraViewStarted(width: Int, height: Int) {
         mGameWidth = width
         mGameHeight = height
