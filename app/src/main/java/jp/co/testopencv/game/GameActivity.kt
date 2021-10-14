@@ -1,7 +1,9 @@
 package jp.co.testopencv.game
 
+import android.graphics.Point
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
 import org.opencv.android.*
@@ -70,6 +72,21 @@ class GameActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewListe
         mOpenCvCameraView!!.setCvCameraViewListener(this)
         mPuzzle15 = Puzzle15Processor()
         mPuzzle15!!.prepareNewGame()
+
+
+        val display = windowManager.defaultDisplay
+        val size = Point()
+        display.getSize(size)
+        val width: Int = size.x
+        val height: Int = size.y
+
+        Log.e("TAG", "width $width height $height")
+
+        val mm = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, 1F,
+            resources.displayMetrics
+        )
+
+        Log.e("TAG", "mm $mm")
     }
 
     override fun onResume() {

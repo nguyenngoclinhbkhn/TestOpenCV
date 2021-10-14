@@ -211,12 +211,11 @@ public class RefObjDetector {
         Imgproc.cvtColor(frame_in, frame, Imgproc.COLOR_BGR2GRAY);
         Imgproc.cvtColor(frame_in, frameHSV, Imgproc.COLOR_BGR2HSV);
 
-
         Core.inRange(frameHSV, new Scalar(refHue-colThreshold, 0, 0), new Scalar(refHue+colThreshold, 255, 255), hueMat);
 
         Imgproc.erode(frame, frame, Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(2,2)));
 
-        Imgproc.Canny(hueMat, frame, 50.0, 130.0);
+        Imgproc.Canny(hueMat, frame, 50.0, 230.0);
 
         Imgproc.dilate(frame, frame, new Mat(), new Point(-1,-1), 1);   // Improves ignoring of small shapes that are not squarish, fps impact of 1
         //test

@@ -42,7 +42,7 @@ class MeasureActivity : AppCompatActivity() {
 
     // RefObjDetector parameters
     // variables which are set by slide bar are ints instead of doubles because of poor support
-    private var refObjHue = 56
+    private var refObjHue = 96
     private var refObjColThreshold = 12
     private var refObjSatMinimum = 120
     private var numberOfDilations = 1

@@ -12,7 +12,7 @@ import org.opencv.imgproc.Imgproc;
  */
 public class Puzzle15Processor {
 
-    private static final int GRID_SIZE = 4;
+    private static final int GRID_SIZE = 6;
     private static final int GRID_AREA = GRID_SIZE * GRID_SIZE;
     private static final int GRID_EMPTY_INDEX = GRID_AREA - 1;
     private static final String TAG = "Puzzle15Processor";

@@ -27,13 +27,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestOpenCV">
         <activity
-            android:name=".detect.DetectActivity"
+            android:name=".measure.MeasureActivity"
             android:exported="true" />
         <activity
             android:name=".game.GameActivity"
             android:exported="true" />
         <activity
-            android:name=".measure.MeasureActivity"
+            android:name=".detect.DetectActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
