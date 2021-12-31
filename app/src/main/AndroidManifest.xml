@@ -3,6 +3,8 @@
     package="jp.co.testopencv">
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -27,6 +29,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestOpenCV">
         <activity
+            android:name=".shapes.CustomShapeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".learn.LearnOpecvActivity"
+            android:exported="true" />
+        <activity
+            android:name=".camera.CameraActivity"
+            android:exported="true" />
+        <activity
             android:name=".measure.MeasureActivity"
             android:exported="true" />
         <activity
@@ -34,7 +45,8 @@
             android:exported="true" />
         <activity
             android:name=".detect.DetectActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

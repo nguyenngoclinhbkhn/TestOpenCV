@@ -1,5 +1,6 @@
 package org.opencv.android;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 import android.content.Context;
@@ -161,7 +162,7 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
                     mPreviewFormat = params.getPreviewFormat();
 
-                    Log.d(TAG, "Set preview size to " + Integer.valueOf((int)frameSize.width) + "x" + Integer.valueOf((int)frameSize.height));
+                    Log.e("TAG", Integer.valueOf((int)frameSize.width) + "x" + Integer.valueOf((int)frameSize.height));
                     params.setPreviewSize((int)frameSize.width, (int)frameSize.height);
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && !android.os.Build.MODEL.equals("GT-I9100"))
@@ -213,6 +214,8 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
 
                     /* Finally we are ready to start the preview */
                     Log.d(TAG, "startPreview");
+                    setDisplayOrientation(mCamera, 90);
+                    mCamera.setParameters(params);
                     mCamera.startPreview();
                 }
                 else
@@ -224,6 +227,20 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
         }
 
         return result;
+    }
+
+    protected void setDisplayOrientation(Camera camera, int angle){
+        Method downPolymorphic;
+        try
+        {
+            downPolymorphic = camera.getClass().getMethod("setDisplayOrientation", new Class[] { int.class });
+            if (downPolymorphic != null)
+                downPolymorphic.invoke(camera, new Object[] { angle });
+        }
+        catch (Exception e1)
+        {
+            e1.printStackTrace();
+        }
     }
 
     protected void releaseCamera() {

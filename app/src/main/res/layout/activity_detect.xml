@@ -6,12 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".detect.DetectActivity">
 
-    <ImageView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/imgView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/linearSeekBar" />
+        app:layout_constraintBottom_toTopOf="@+id/linearSeekBar">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:background="@color/teal_200"
+            android:id="@+id/frameDraw"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imgView" />
+
+            <jp.co.testopencv.shapes.DrawView
+                android:layout_width="match_parent"
+                android:id="@+id/drawView"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linearSeekBar"
@@ -19,6 +35,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/btnChooseImage">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtResult"
+            android:layout_marginStart="5dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="Enter size " />
+
+            <Button
+                android:id="@+id/btnCalculate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:text="Calculate"
+                android:textAllCaps="false" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
