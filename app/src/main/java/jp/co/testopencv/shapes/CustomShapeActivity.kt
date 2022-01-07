@@ -1,12 +1,10 @@
 package jp.co.testopencv.shapes
 
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import jp.co.testopencv.R
 import kotlinx.android.synthetic.main.activity_custom_shape.*
-import org.opencv.core.Size
 
 class CustomShapeActivity : AppCompatActivity() {
     lateinit var drawView: DrawView
@@ -25,7 +23,7 @@ class CustomShapeActivity : AppCompatActivity() {
         imageLeftBottom.setImageResource(R.drawable.circle)
         imageRightBottom.setImageResource(R.drawable.circle)
         deleteButton.setImageResource(R.drawable.circle)
-        val shape = Shape(
+        val shape = RectangleShape(
             leftTop = imageLeftTop,
             rightTop = imageRightTop,
             leftBottom = imageLeftBottom,
@@ -33,7 +31,7 @@ class CustomShapeActivity : AppCompatActivity() {
             editSize = deleteButton,
             tagShape = drawView.getShapeList().size.toString()
         )
-        drawView.addShape(shape)
+//        drawView.addShape(shape)
 
 
         btnAddShape?.setOnClickListener {
@@ -47,7 +45,7 @@ class CustomShapeActivity : AppCompatActivity() {
             imageLeftBottom1.setImageResource(R.drawable.circle)
             imageRightBottom1.setImageResource(R.drawable.circle)
             deleteButton1.setImageResource(R.drawable.circle)
-            val shape1 = Shape(
+            val shape1 = RectangleShape(
                 leftTop = imageLeftTop1,
                 rightTop = imageRightTop1,
                 leftBottom = imageLeftBottom1,
@@ -55,7 +53,7 @@ class CustomShapeActivity : AppCompatActivity() {
                 editSize = deleteButton1,
                 tagShape = drawView.getShapeList().size.toString()
             )
-            drawView.addShape(shape1)
+//            drawView.addShape(shape1)
         }
     }
 }
